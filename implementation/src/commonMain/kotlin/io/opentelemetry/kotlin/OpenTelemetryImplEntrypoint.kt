@@ -43,7 +43,7 @@ public fun createOpenTelemetry(
 
     val traceFlags = TraceFlagsFactoryImpl()
     val traceState = TraceStateFactoryImpl()
-    val spanContext = SpanContextFactoryImpl(idGenerator, traceFlags, traceState)
+    val spanContext = SpanContextFactoryImpl(traceFlags, traceState)
 
     val span = SpanFactoryImpl(spanContext)
     val contextFactory = ContextFactoryImpl(span, cfg.sdkErrorHandler, cfg.contextConfig::generateStorage)
